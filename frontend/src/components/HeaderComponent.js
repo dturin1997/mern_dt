@@ -49,7 +49,10 @@ const HeaderComponent = () => {
         navigate(`/product-list/search/${searchQuery}`);
       } else {
         navigate(
-          `/product-list/category/${searchCategoryToggle.replace(/\//g, ",")}/search/${searchQuery}`
+          `/product-list/category/${searchCategoryToggle.replace(
+            /\//g,
+            ","
+          )}/search/${searchQuery}`
         );
       }
     } else if (searchCategoryToggle !== "All") {

@@ -8,11 +8,13 @@ import MetaComponent from "../../components/MetaComponent";
 const HomePageComponent = ({ categories, getBestsellers }) => {
   const [mainCategories, setMainCategories] = useState([]);
   const [bestSellers, setBestsellers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getBestsellers()
       .then((data) => {
         setBestsellers(data);
+        setLoading(false);
       })
       .catch((er) =>
         console.log(
@@ -27,14 +29,24 @@ const HomePageComponent = ({ categories, getBestsellers }) => {
   return (
     <>
       <MetaComponent />
-      <ProductCarouselComponent bestSellers={bestSellers} />
-      <Container>
-        <Row xs={1} md={2} className="g-4 mt-5">
-          {mainCategories.map((category, idx) => (
-            <CategoryCardComponent key={idx} category={category} idx={idx} />
-          ))}
-        </Row>
-      </Container>
+      {loading ? (
+        <h1>Loading home ....</h1>
+      ) : (
+        <>
+          <ProductCarouselComponent bestSellers={bestSellers} />
+          <Container>
+            <Row xs={1} md={2} className="g-4 mt-5">
+              {mainCategories.map((category, idx) => (
+                <CategoryCardComponent
+                  key={idx}
+                  category={category}
+                  idx={idx}
+                />
+              ))}
+            </Row>
+          </Container>
+        </>
+      )}
     </>
   );
 };
