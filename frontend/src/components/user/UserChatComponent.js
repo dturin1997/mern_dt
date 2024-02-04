@@ -24,8 +24,8 @@ const UserChatComponent = () => {
 
       const socket =
         process.env.REACT_APP_PLATFORM === "railway"
-          ? socketIOClient(process.env.REACT_APP_API_SERVER)
-          : socketIOClient();
+          ? socketIOClient(process.env.REACT_APP_API_RAILWAY)
+          : socketIOClient(process.env.REACT_APP_API_RENDER);
       socket.on("no admin", (msg) => {
         setChat((chat) => {
           return [...chat, { admin: "no admin here now" }];
