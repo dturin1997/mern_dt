@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "destination": "https://merndt-production.up.railway.app/:path*"
+    },
+    {
+      "source": "/api/:path*/",
+      "destination": "https://merndt-production.up.railway.app/:path*/"
+    }
+  ]
+}
