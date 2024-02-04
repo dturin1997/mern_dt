@@ -67,10 +67,15 @@ const HeaderComponent = () => {
   useEffect(() => {
     if (userInfo.isAdmin) {
       var audio = new Audio("/audio/chat-msg.mp3");
+
+      /*
       const socket =
         process.env.REACT_APP_PLATFORM === "railway"
           ? socketIOClient(process.env.REACT_APP_API_RAILWAY)
           : socketIOClient(process.env.REACT_APP_API_RENDER);
+          
+      */
+      const socket = socketIOClient();
       socket.emit(
         "admin connected with server",
         "Admin" + Math.floor(Math.random() * 1000000000000)

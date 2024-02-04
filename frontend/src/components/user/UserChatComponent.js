@@ -21,11 +21,13 @@ const UserChatComponent = () => {
     if (!userInfo.isAdmin) {
       setReconnect(false);
       var audio = new Audio("/audio/chat-msg.mp3");
-
+      /*
       const socket =
         process.env.REACT_APP_PLATFORM === "railway"
           ? socketIOClient(process.env.REACT_APP_API_RAILWAY)
           : socketIOClient(process.env.REACT_APP_API_RENDER);
+      */
+      const socket = socketIOClient();
       socket.on("no admin", (msg) => {
         setChat((chat) => {
           return [...chat, { admin: "no admin here now" }];

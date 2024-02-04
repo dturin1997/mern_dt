@@ -30,10 +30,13 @@ const AnalyticsPageComponent = ({
   const [dataForSecondSet, setDataForSecondSet] = useState([]);
 
   useEffect(() => {
+    /*
     const socket =
       process.env.REACT_APP_PLATFORM === "railway"
         ? socketIOClient(process.env.REACT_APP_API_RAILWAY)
         : socketIOClient(process.env.REACT_APP_API_RENDER);
+    */
+    const socket = socketIOClient();
     let today = new Date().toDateString();
     const handler = (newOrder) => {
       var orderDate = new Date(newOrder.createdAt).toLocaleString("en-US", {
