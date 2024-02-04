@@ -17,16 +17,6 @@
       "destination": "https://merndt-production.up.railway.app/socket.io/:path*/"
     },
     {
-      "source": "/socket.io/:path*",
-      "destination": "wss://merndt-production.up.railway.app/socket.io/:path*",
-      "protocol": "websocket"
-    },
-    {
-      "source": "/socket.io/:path*/",
-      "destination": "wss://merndt-production.up.railway.app/socket.io/:path*/",
-      "protocol": "websocket"
-    },
-    {
       "source": "/(.*)",
       "destination": "/$1"
     }
