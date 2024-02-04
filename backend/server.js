@@ -15,7 +15,12 @@ const app = express();
 app.use(helmet());
 
 const httpServer = createServer(app);
-global.io = new Server(httpServer);
+global.io = new Server(httpServer, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
 
 app.use(json());
 app.use(cookieParser());
