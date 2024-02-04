@@ -5,10 +5,6 @@
       "destination": "https://merndt-production.up.railway.app/api/:path*"
     },
     {
-      "source": "/api/:path*/",
-      "destination": "https://merndt-production.up.railway.app/api/:path*/"
-    },
-    {
       "source": "/socket.io/:path*",
       "destination": "https://merndt-production.up.railway.app/socket.io/:path*"
     }
