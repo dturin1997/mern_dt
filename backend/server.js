@@ -7,6 +7,7 @@ import apiRoutes from "./routes/apiRoutes.js";
 import connectDB from "./config/db.js";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ app.use(helmet());
 
 const httpServer = createServer(app);
 global.io = new Server(httpServer);
+
+app.use(cors());
 
 app.use(json());
 app.use(cookieParser());
